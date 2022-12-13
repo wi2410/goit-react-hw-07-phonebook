@@ -5,14 +5,15 @@ export const Label = styled.label`
 `;
 export const FilterInput = styled.input`
   border: 1px solid black;
-  box-shadow: 10px 10px 12px -3px rgba(0, 0, 0, 0.21);
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.21);
   margin-bottom: 16px;
   margin-top: 8px;
   padding: 4px;
   outline: none;
+  border-radius: 10px;
 
   &:hover,
   :focus {
-    border: 1px solid skyblue;
+    border: 1px solid #0057b8;
   }
 `;

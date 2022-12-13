@@ -6,6 +6,9 @@ export const Form = styled.form`
   width: 300px;
   padding: 24px;
   border: 1px solid black;
+  background-color: #ffd700;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.21);
 `;
 
 export const FormInput = styled.input`
@@ -15,9 +18,10 @@ export const FormInput = styled.input`
   margin-top: 6px;
   padding: 4px;
   outline: none;
+  border-radius: 10px;
   &:hover,
   :focus {
-    border: 1px solid blue;
+    border: 1px solid #0057b8;
   }
 `;
 
@@ -29,7 +33,7 @@ export const SubmitButton = styled.button`
   background-color: white;
   cursor: pointer;
   &:hover {
-    background-color: blue;
+    background-color: #0057b8;
     color: white;
   }
 `;

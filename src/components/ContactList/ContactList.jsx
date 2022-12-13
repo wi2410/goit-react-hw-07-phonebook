@@ -1,6 +1,8 @@
 import ContactItem from '../ContactItem/ContactItem';
-import { useSelector } from 'react-redux';
-import { getContacts, getFilterInput } from 'redux/selectors';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectContacts, selectFilterInput, selectIsLoading } from 'redux/selectors';
+import { fetchContacts } from 'redux/operations';
 
 const handleFilterChange = (contacts, filter) => {
   if (filter) {
@@ -12,14 +14,22 @@ const handleFilterChange = (contacts, filter) => {
 };
 
 const ContactList = () => {
-  const contacts = useSelector(getContacts);
-  const filterValue = useSelector(getFilterInput);
+  const dispatch = useDispatch();
+  const isLoading = useSelector(selectIsLoading);
+  const contacts = useSelector(selectContacts);
+  const filterValue = useSelector(selectFilterInput);
   const filtredContacts = handleFilterChange(contacts, filterValue.filter);
+
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
+
   return (
     <ul>
-      {filtredContacts.map(contact => {
-        return <ContactItem key={contact.id} contact={contact} />;
-      })}
+      {!isLoading &&
+        filtredContacts.map(contact => {
+          return <ContactItem key={contact.id} contact={contact} />;
+        })}
     </ul>
   );
 };

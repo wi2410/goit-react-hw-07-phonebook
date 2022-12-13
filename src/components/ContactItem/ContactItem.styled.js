@@ -3,6 +3,8 @@ import styled from '@emotion/styled';
 export const ListItem = styled.li`
   width: 400px;
   margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
   
   &:hover {
     background-color: #F0F0F0;
